@@ -1,21 +1,54 @@
 function App() {
+  function handleClick() {
+    const menu = document.querySelector("#menu");
+
+    if (menu.classList.contains("hidden")) {
+      menu.classList.remove("hidden");
+    } else {
+      menu.classList.add("hidden");
+    }
+  }
+
   return (
     <div
       className="text-gray-600 grid md:grid-cols-3"
       style={{ fontFamily: "Poppins" }}
     >
-      <div className="md:col-span-1">
-        <nav>
-          <div>
+      <div className="md:col-span-1 md:flex md:justify-end">
+        <nav className="text-right">
+          <div className="flex justify-between items-center">
             <h1 class="font-bold uppercase p-4 border-b border-gray-100">
               <a href="/" className="hover:text-gray-700">
                 Food Ninja
               </a>
             </h1>
+            <div
+              className="px-4 cursor-pointer md:hidden"
+              id="burger"
+              onClick={handleClick}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </div>
           </div>
-          <ul className="flex p-4">
-            <li className="mr-2">
-              <a href="#">
+          <ul className="text-sm mt-6 hidden md:block" id="menu">
+            <li className="text-gray-700 font-bold py-1">
+              <a
+                href="#"
+                className="px-4 flex justify-end border-r-4 border-primary"
+              >
                 <span>Home</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +56,7 @@ function App() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-5 h-5"
+                  className="w-5 h-5 ml-2"
                 >
                   <path
                     strokeLinecap="round"
@@ -33,8 +66,11 @@ function App() {
                 </svg>
               </a>
             </li>
-            <li className="mr-2">
-              <a href="#">
+            <li className="py-1">
+              <a
+                href="#"
+                className="px-4 flex justify-end border-r-4 border-white"
+              >
                 <span>About</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +78,7 @@ function App() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-5 h-5"
+                  class="w-5 h-5 ml-2"
                 >
                   <path
                     stroke-linecap="round"
@@ -52,8 +88,11 @@ function App() {
                 </svg>
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li className="py-1">
+              <a
+                href="#"
+                className="px-4 flex justify-end border-r-4 border-white"
+              >
                 <span>Contact</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +100,7 @@ function App() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-5 h-5"
+                  class="w-5 h-5 ml-2"
                 >
                   <path
                     stroke-linecap="round"
@@ -78,13 +117,13 @@ function App() {
         <div className="flex justify-center md:justify-end">
           <a
             href="#"
-            className="text-primary btn border-primary md:border-2 hover:bg-primary hover:text-white"
+            className="text-primary btn border-primary md:border-2 hover:bg-primary hover:text-white transition ease-out duration-500"
           >
             Login
           </a>
           <a
             href="#"
-            className="text-primary ml-2 btn border-primary md:border-2 hover:bg-primary hover:text-white"
+            className="text-primary ml-2 btn border-primary md:border-2 hover:bg-primary hover:text-white transition ease-out duration-500"
           >
             Sign up
           </a>
@@ -199,7 +238,7 @@ function App() {
             <img />
           </div>
           <div className="flex justify-end">
-            <div className="bg-secondary-100 text-secondary-200 p-1 btn hover:shadow-inner">
+            <div className="bg-secondary-100 text-secondary-200 p-1 btn hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 duration-300">
               Load more
             </div>
           </div>
